@@ -8,13 +8,16 @@ if name.isalpha():
 """
 
 def main():
-        pin = 0000
-        initialBalance = 1000
-        #newBalance = 0000
-        myPin=str(input("Please input your pin, default pin is 0000\n"))
-        if myPin.isdigit():
-            if myPin==pin:
-                print("************************************************************************************")
+    initialBalance = 1000
+    newBalance = 0000
+    try:
+        try:
+            pin=0000
+            myPin =int(input("Please input your pin, default pin is 0000\n"))
+        except Exception as e:
+            print("Only digits are allowed!!!")
+        if pin==myPin:
+                print("******************************************************************************************")
                 print("1. Withdrawal                 2. Deposit                      3. Airtime top-up")
                 print("4. Check Balance              5. Change Pin")
                 option=int(input("Please choose your option\n"))
@@ -155,7 +158,7 @@ def main():
                             else:
                                 print("Passwords does not match")
                         else:
-                            print("Incorrect Password!!!")d
+                            print("Incorrect Password!!!")
                         print("Do you want to perform another transaction?")
                         transaction = int(input("1. YES           2. NO\n"))
                         if transaction == 1:
@@ -163,11 +166,11 @@ def main():
                         else:
                             print("Thanks for banking with us...")
 
-                else:
-                    print("Incorrect Password.......")
-                    print("**************************************************************")
-            else:
-                print("Please enter digits only!!!")
-                main()
+        else:
+            print("Incorrect Password.......")
+            print("***********************************************************************************************")
+    except Exception as e:
+        print(e)
+    main()
 
 main()
